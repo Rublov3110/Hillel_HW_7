@@ -55,8 +55,8 @@
             Console.WriteLine(new string('-', 50));
 
             var groupedPeople = people.Where(p => p.Age > 20)
-                          .Select(p => new { p.Id, p.Name })
-                          .GroupBy(p => p.Id)
+                          .Select(p => new { p.Id, p.Name, p.Age})
+                          .GroupBy(p => p.Age)
                           .ToDictionary(g => g.Key, g => g.Select(p => p.Name).ToList());
 
             foreach (var group in groupedPeople)
